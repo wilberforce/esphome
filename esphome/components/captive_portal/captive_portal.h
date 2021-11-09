@@ -68,7 +68,7 @@ class CaptivePortal : public AsyncWebHandler, public Component {
   web_server_base::WebServerBase *base_;
   bool initialized_{false};
   bool active_{false};
-  std::unique_ptr<DNSServer> dns_server_{nullptr};
+  std::shared_ptr<DNSServer> dns_server_{nullptr};
 };
 
 extern CaptivePortal *global_captive_portal;  // NOLINT(cppcoreguidelines-avoid-non-const-global-variables)

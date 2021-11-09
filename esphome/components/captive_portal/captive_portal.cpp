@@ -78,7 +78,7 @@ void CaptivePortal::start() {
     this->base_->add_ota_handler();
   }
 
-  this->dns_server_ = make_unique<DNSServer>();
+  this->dns_server_ = std::make_shared<DNSServer>();
   this->dns_server_->setErrorReplyCode(DNSReplyCode::NoError);
   network::IPAddress ip = wifi::global_wifi_component->wifi_soft_ap_ip();
   this->dns_server_->start(53, "*", (uint32_t) ip);
